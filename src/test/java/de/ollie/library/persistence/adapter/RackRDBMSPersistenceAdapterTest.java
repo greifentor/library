@@ -51,7 +51,6 @@ public class RackRDBMSPersistenceAdapterTest {
 	@Test
 	public void findById_PassAnExistingId_ReturnsTheRackDeliveredFromRepository() {
 		// Prepare
-		// Prepare
 		long id = 42;
 		String name = "name";
 		Optional<RackSO> expected = Optional.of(new RackSO().setId(id).setName(name));
@@ -62,8 +61,6 @@ public class RackRDBMSPersistenceAdapterTest {
 		Optional<RackSO> returned = this.unitUnderTest.findById(id);
 		// Check
 		assertThat(returned, equalTo(expected));
-		// Run
-		// Check
 	}
 
 }
