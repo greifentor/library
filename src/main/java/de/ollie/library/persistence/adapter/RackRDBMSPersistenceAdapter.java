@@ -4,9 +4,10 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import de.ollie.library.persistence.converter.RackDBOConverter;
 import de.ollie.library.persistence.model.RackDBO;
 import de.ollie.library.persistence.repository.RackRepository;
-import de.ollie.library.service.model.Rack;
+import de.ollie.library.service.model.RackSO;
 import de.ollie.library.service.persistence.port.RackPersistencePort;
 
 /**
@@ -18,21 +19,22 @@ import de.ollie.library.service.persistence.port.RackPersistencePort;
 @Service
 public class RackRDBMSPersistenceAdapter implements RackPersistencePort {
 
+	private final RackDBOConverter rackConverter;
 	private final RackRepository rackRepository;
 
-	public RackRDBMSPersistenceAdapter(RackRepository rackRepository) {
+	public RackRDBMSPersistenceAdapter(RackDBOConverter rackConverter, RackRepository rackRepository) {
 		super();
+		this.rackConverter = rackConverter;
 		this.rackRepository = rackRepository;
 	}
 
 	@Override
-	public Optional<Rack> findById(long id) {
+	public Optional<RackSO> findById(long id) {
 		Optional<RackDBO> dbo = this.rackRepository.findById(id);
 		if (dbo.isEmpty()) {
 			return Optional.empty();
 		}
-		RackDBO rack = dbo.get();
-		return Optional.of(new Rack().setId(rack.getId()).setName(rack.getName())); // CONVERTER !!!
+		return Optional.of(this.rackConverter.convertDBOToSO(dbo.get()));
 	}
 
 }

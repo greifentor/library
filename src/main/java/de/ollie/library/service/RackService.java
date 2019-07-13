@@ -1,16 +1,16 @@
-package de.ollie.library.service.persistence.port;
+package de.ollie.library.service;
 
 import java.util.Optional;
 
 import de.ollie.library.service.model.RackSO;
 
 /**
- * An interface for rack persistence ports.
- * 
+ * An interface for a rack service.
+ *
  * @author ollie
  *
  */
-public interface RackPersistencePort {
+public interface RackService {
 
 	Optional<RackSO> findById(long id);
 

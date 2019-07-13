@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+		xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+				http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"> 
+	<changeSet author="OlLie" id="version-001-001">
+		<createTable tableName="RACK">
+			<column name="ID" type="BIGINT">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="NAME" type="VARCHAR(255)">
+				<constraints nullable="false" unique="true"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="OlLie" id="version-001-002">
+		<insert tableName="RACK">
+			<column name="ID" valueNumeric="1"/>
+			<column name="NAME" value="Rack 1"/>
+		</insert>
+	</changeSet>
+	<changeSet author="OlLie" id="version-001-003">
+		<insert tableName="RACK">
+			<column name="ID" valueNumeric="2"/>
+			<column name="NAME" value="Rack 2"/>
+		</insert>
+	</changeSet>
+</databaseChangeLog> 

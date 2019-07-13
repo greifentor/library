@@ -4,14 +4,14 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * A model class for racks.
+ * A service object class for racks.
  *
  * @author ollie
  *
  */
 @Accessors(chain = true)
 @Data
-public class Rack {
+public class RackSO {
 
 	private long id;
 	private String name;
