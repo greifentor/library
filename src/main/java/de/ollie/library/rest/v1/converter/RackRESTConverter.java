@@ -1,9 +1,9 @@
-package de.ollie.library.rest.v1.controller;
+package de.ollie.library.rest.v1.converter;
 
 import org.springframework.stereotype.Component;
 
 import de.ollie.library.rest.v1.dto.RackDTO;
-import de.ollie.library.service.model.RackSO;
+import de.ollie.library.service.so.RackSO;
 
 /**
  * A converter for rack objects in REST context.

@@ -3,7 +3,7 @@ package de.ollie.library.persistence.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import de.ollie.library.persistence.model.RackDBO;
+import de.ollie.library.persistence.dbo.RackDBO;
 
 /**
  * A repository for rack access.

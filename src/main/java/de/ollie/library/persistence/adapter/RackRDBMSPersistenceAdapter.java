@@ -5,10 +5,10 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import de.ollie.library.persistence.converter.RackDBOConverter;
-import de.ollie.library.persistence.model.RackDBO;
+import de.ollie.library.persistence.dbo.RackDBO;
 import de.ollie.library.persistence.repository.RackRepository;
-import de.ollie.library.service.model.RackSO;
 import de.ollie.library.service.persistence.port.RackPersistencePort;
+import de.ollie.library.service.so.RackSO;
 
 /**
  * An implementation of the rack persistence port interface for RDBMS.

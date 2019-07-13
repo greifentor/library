@@ -2,8 +2,8 @@ package de.ollie.library.persistence.converter;
 
 import org.springframework.stereotype.Component;
 
-import de.ollie.library.persistence.model.RackDBO;
-import de.ollie.library.service.model.RackSO;
+import de.ollie.library.persistence.dbo.RackDBO;
+import de.ollie.library.service.so.RackSO;
 
 /**
  * A converter for rack database objects.

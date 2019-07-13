@@ -1,4 +1,4 @@
-package de.ollie.library.service.model;
+package de.ollie.library.service.so;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

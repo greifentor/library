@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import de.ollie.library.rest.v1.converter.RackRESTConverter;
 import de.ollie.library.rest.v1.dto.RackDTO;
 import de.ollie.library.service.RackService;
-import de.ollie.library.service.model.RackSO;
+import de.ollie.library.service.so.RackSO;
 
 /**
  * A REST controller for racks.

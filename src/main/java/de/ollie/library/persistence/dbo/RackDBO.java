@@ -1,4 +1,4 @@
-package de.ollie.library.persistence.model;
+package de.ollie.library.persistence.dbo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

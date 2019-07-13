@@ -2,7 +2,7 @@ package de.ollie.library.service;
 
 import java.util.Optional;
 
-import de.ollie.library.service.model.RackSO;
+import de.ollie.library.service.so.RackSO;
 
 /**
  * An interface for a rack service.
