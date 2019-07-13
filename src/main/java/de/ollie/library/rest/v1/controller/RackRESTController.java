@@ -2,12 +2,11 @@ package de.ollie.library.rest.v1.controller;
 
 import java.util.Optional;
 
-import javax.websocket.server.PathParam;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +24,7 @@ import de.ollie.library.service.model.RackSO;
 @RequestMapping("api/v1/racks")
 public class RackRESTController {
 
-	private final Logger logger = LoggerFactory.getLogger(RackRESTController.class);
+	private final Logger logger = LogManager.getLogger(RackRESTController.class);
 
 	private final RackRESTConverter rackRESTConverter;
 	private final RackService rackService;
@@ -34,11 +33,11 @@ public class RackRESTController {
 		super();
 		this.rackRESTConverter = rackRESTConverter;
 		this.rackService = rackService;
-		logger.debug("\n\n\nStarted");
+		logger.info("\n\n\nStarted");
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<RackDTO> findById(@PathParam("id") long id) {
+	public ResponseEntity<RackDTO> findById(@PathVariable("id") long id) {
 		Optional<RackSO> so = this.rackService.findById(id);
 		if (so.isEmpty()) {
 			return ResponseEntity.notFound().build();
