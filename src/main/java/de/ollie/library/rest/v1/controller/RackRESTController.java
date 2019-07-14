@@ -34,13 +34,13 @@ public class RackRESTController {
 		super();
 		this.rackRESTConverter = rackRESTConverter;
 		this.rackService = rackService;
-		logger.info("\n\n\nStarted");
 	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<RackDTO> findById(@PathVariable("id") long id) {
 		Optional<RackSO> so = this.rackService.findById(id);
 		if (so.isEmpty()) {
+			logger.debug("no rack found for id: " + id);
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok().body(this.rackRESTConverter.convertSOToDTO(so.get()));
