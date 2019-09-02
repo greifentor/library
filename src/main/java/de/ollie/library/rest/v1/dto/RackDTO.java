@@ -4,10 +4,11 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * A date transfer object class for racks.
+ * A data transfer object class for racks.
  *
- * @author ollie
+ * @author rest-acf
  *
+ * GENERATED CODE!!! DO NOT CHANGE!!!
  */
 @Accessors(chain = true)
 @Data

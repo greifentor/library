@@ -6,10 +6,11 @@ import org.springframework.stereotype.Repository;
 import de.ollie.library.persistence.dbo.RackDBO;
 
 /**
- * A repository for rack access.
+ * A CRUD repository for rack access.
  *
- * @author ollie
+ * @author rest-acf
  *
+ * GENERATED CODE!!! DO NOT CHANGE!!!
  */
 @Repository
 public interface RackRepository extends CrudRepository<RackDBO, Long> {

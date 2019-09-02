@@ -6,10 +6,11 @@ import de.ollie.library.persistence.dbo.RackDBO;
 import de.ollie.library.service.so.RackSO;
 
 /**
- * A converter for rack database objects.
+ * A converter for rack DBO's.
  *
- * @author ollie
+ * @author rest-acf
  *
+ * GENERATED CODE!!! DO NOT CHANGE!!!
  */
 @Component
 public class RackDBOConverter {
@@ -19,6 +20,13 @@ public class RackDBOConverter {
 			return null;
 		}
 		return new RackSO().setId(dbo.getId()).setName(dbo.getName());
+	}
+
+	public RackDBO convertSOToDBO(RackSO so) {
+		if (so == null) {
+			return null;
+		}
+		return new RackDBO().setId(so.getId()).setName(so.getName());
 	}
 
 }

@@ -32,7 +32,7 @@ public class RackServiceImplTest {
 	private RackServiceImpl unitUnderTest;
 
 	@Test
-	public void findById_CallsTheFindByIdMethodOfTheRackPersistencePort() {
+	public void findById_CallsTheFindByIdMethodOfTheRackPersistencePort() throws Exception {
 		// Prepare
 		long id = 42;
 		String name = "name";

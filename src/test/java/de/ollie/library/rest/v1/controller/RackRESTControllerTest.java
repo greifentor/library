@@ -37,7 +37,7 @@ public class RackRESTControllerTest {
 	private RackRESTController unitUnderTest;
 
 	@Test
-	public void findById_PassANotExistingId_ReturnsANotFound() {
+	public void findById_PassANotExistingId_ReturnsANotFound() throws Exception {
 		// Prepare
 		long id = 42;
 		ResponseEntity<RackDTO> expected = ResponseEntity.notFound().build();
@@ -50,7 +50,7 @@ public class RackRESTControllerTest {
 	}
 
 	@Test
-	public void findById_PassAnExistingId_ReturnsARackDTOWithTheRack() {
+	public void findById_PassAnExistingId_ReturnsARackDTOWithTheRack() throws Exception {
 		// Prepare
 		long id = 42;
 		String name = "name";

@@ -10,9 +10,10 @@ import lombok.experimental.Accessors;
 
 /**
  * A ORM mapping and database access class for racks.
- * 
- * @author ollie
  *
+ * @author rest-acf
+ *
+ * GENERATED CODE!!! DO NOT CHANGE!!!
  */
 @Accessors(chain = true)
 @Data

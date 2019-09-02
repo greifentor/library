@@ -36,7 +36,7 @@ public class RackRDBMSPersistenceAdapterTest {
 	private RackRDBMSPersistenceAdapter unitUnderTest;
 
 	@Test
-	public void findById_PassANotExistingId_ReturnsAnEMptyOptional() {
+	public void findById_PassANotExistingId_ReturnsAnEMptyOptional() throws Exception {
 		// Prepare
 		long id = 42;
 		Optional<RackSO> expected = Optional.empty();
@@ -49,7 +49,7 @@ public class RackRDBMSPersistenceAdapterTest {
 	}
 
 	@Test
-	public void findById_PassAnExistingId_ReturnsTheRackDeliveredFromRepository() {
+	public void findById_PassAnExistingId_ReturnsTheRackDeliveredFromRepository() throws Exception {
 		// Prepare
 		long id = 42;
 		String name = "name";

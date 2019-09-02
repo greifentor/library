@@ -7,34 +7,50 @@ import org.springframework.stereotype.Service;
 import de.ollie.library.persistence.converter.RackDBOConverter;
 import de.ollie.library.persistence.dbo.RackDBO;
 import de.ollie.library.persistence.repository.RackRepository;
+import de.ollie.library.service.persistence.exception.PersistenceException;
 import de.ollie.library.service.persistence.port.RackPersistencePort;
 import de.ollie.library.service.so.RackSO;
 
 /**
  * An implementation of the rack persistence port interface for RDBMS.
  *
- * @author ollie
+ * @author rest-acf
  *
+ * GENERATED CODE!!! DO NOT CHANGE!!!
  */
 @Service
 public class RackRDBMSPersistenceAdapter implements RackPersistencePort {
 
-	private final RackDBOConverter rackConverter;
+	private final RackDBOConverter rackDBOConverter;
 	private final RackRepository rackRepository;
 
-	public RackRDBMSPersistenceAdapter(RackDBOConverter rackConverter, RackRepository rackRepository) {
+	public RackRDBMSPersistenceAdapter(RackDBOConverter rackDBOConverter, RackRepository rackRepository) {
 		super();
-		this.rackConverter = rackConverter;
+		this.rackDBOConverter = rackDBOConverter;
 		this.rackRepository = rackRepository;
 	}
 
 	@Override
-	public Optional<RackSO> findById(long id) {
-		Optional<RackDBO> dbo = this.rackRepository.findById(id);
-		if (dbo.isEmpty()) {
-			return Optional.empty();
+	public Optional<RackSO> findById(long id) throws PersistenceException {
+		try {
+			Optional<RackDBO> dbo = this.rackRepository.findById(id);
+			if (dbo.isEmpty()) {
+				return Optional.empty();
+			}
+			return Optional.of(this.rackDBOConverter.convertDBOToSO(dbo.get()));
+		} catch (Exception e) {
+			throw new PersistenceException(PersistenceException.Type.ReadError, "error while finding by id: " + id, e);
 		}
-		return Optional.of(this.rackConverter.convertDBOToSO(dbo.get()));
+	}
+
+	@Override
+	public void save(RackSO so) throws PersistenceException {
+		try {
+			RackDBO dbo = this.rackDBOConverter.convertSOToDBO(so);
+			this.rackRepository.save(dbo);
+		} catch (Exception e) {
+			throw new PersistenceException(PersistenceException.Type.WriteError, "error while saving: " + so, e);
+		}
 	}
 
 }
