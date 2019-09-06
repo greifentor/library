@@ -10,9 +10,11 @@ import de.ollie.library.service.so.RackSO;
  *
  * @author rest-acf
  *
- * GENERATED CODE!!! DO NOT CHANGE!!!
+ *         GENERATED CODE!!! DO NOT CHANGE!!!
  */
 public interface RackPersistencePort {
+
+	boolean delete(long id) throws PersistenceException;
 
 	Optional<RackSO> findById(long id) throws PersistenceException;
 

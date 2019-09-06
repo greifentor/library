@@ -14,7 +14,7 @@ import de.ollie.library.service.so.RackSO;
  *
  * @author rest-acf
  *
- * GENERATED CODE!!! DO NOT CHANGE!!!
+ *         GENERATED CODE!!! DO NOT CHANGE!!!
  */
 @Service
 public class RackServiceImpl implements RackService {
@@ -24,6 +24,11 @@ public class RackServiceImpl implements RackService {
 	public RackServiceImpl(RackPersistencePort rackPersistencePort) {
 		super();
 		this.rackPersistencePort = rackPersistencePort;
+	}
+
+	@Override
+	public boolean delete(long id) throws PersistenceException {
+		return this.rackPersistencePort.delete(id);
 	}
 
 	@Override

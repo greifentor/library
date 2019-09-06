@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import static org.hamcrest.Matchers.equalTo;
 
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -14,7 +15,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 
-import de.ollie.library.rest.v1.converter.RackRESTConverter;
+import de.ollie.library.rest.v1.converter.RackDTOConverter;
 import de.ollie.library.rest.v1.dto.RackDTO;
 import de.ollie.library.service.RackService;
 import de.ollie.library.service.so.RackSO;
@@ -29,7 +30,9 @@ import de.ollie.library.service.so.RackSO;
 public class RackRESTControllerTest {
 
 	@Mock
-	private RackRESTConverter rackRESTConverter;
+	private Logger logger;
+	@Mock
+	private RackDTOConverter rackDTOConverter;
 	@Mock
 	private RackService rackService;
 
@@ -56,7 +59,7 @@ public class RackRESTControllerTest {
 		String name = "name";
 		ResponseEntity<RackDTO> expected = ResponseEntity.ok().body(new RackDTO().setId(id).setName(name));
 		Optional<RackSO> so = Optional.of(new RackSO().setId(id).setName(name));
-		when(this.rackRESTConverter.convertSOToDTO(so.get())).thenReturn(expected.getBody());
+		when(this.rackDTOConverter.convertSOToDTO(so.get())).thenReturn(expected.getBody());
 		when(this.rackService.findById(id)).thenReturn(so);
 		// Run
 		ResponseEntity<RackDTO> returned = this.unitUnderTest.findById(id);
