@@ -16,7 +16,7 @@ import de.ollie.library.service.so.RackSO;
  *
  * @author rest-acf
  *
- *         GENERATED CODE!!! DO NOT CHANGE!!!
+ * GENERATED CODE!!! DO NOT CHANGE!!!
  */
 @Service
 public class RackRDBMSPersistenceAdapter implements RackPersistencePort {
@@ -40,8 +40,7 @@ public class RackRDBMSPersistenceAdapter implements RackPersistencePort {
 				result = true;
 			}
 		} catch (Exception e) {
-			throw new PersistenceException(PersistenceException.Type.WriteError,
-					"error while deleting rack with id: " + id, e);
+			throw new PersistenceException(PersistenceException.Type.WriteError, "error while deleting rack with id: " + id, e);
 		}
 		return result;
 	}
