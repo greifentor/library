@@ -14,16 +14,16 @@ import de.ollie.library.rest.v1.dto.RackDTO;
 import de.ollie.library.service.so.RackSO;
 
 /**
- * Unit tests for class "RackRESTConverter".
+ * Unit tests for class "RackDTOConverter".
  *
  * @author ollie
  *
  */
 @ExtendWith(MockitoExtension.class)
-public class RackRESTConverterTest {
+public class RackDTOConverterTest {
 
 	@InjectMocks
-	private RackRESTConverter unitUnderTest;
+	private RackDTOConverter unitUnderTest;
 
 	@Test
 	public void convertSOToDTO_PassANullValue_ReturnsANullValue() {
